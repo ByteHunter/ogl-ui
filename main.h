@@ -6,9 +6,8 @@
 typedef unsigned char uchar;
 typedef unsigned int uint;
 
-#define IDC_GRX_OPENGL	600
-#define IDC_GRX_TIMER	608
-
+#define IDC_GRX_OPENGL 600
+#define IDC_GRX_TIMER 608
 
 HWND GraphicsOpengl;
 HDC hdc;
@@ -43,30 +42,30 @@ Button tab3button1;
 Static tab4statics[5];
 Wheel tab4wheels[5];
 
-int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmdLine, int nShowCmd);
+int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmdLine,
+                   int nShowCmd);
 LRESULT CALLBACK WinProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
-void CreateGraphicsPanel(HWND hWnd,UINT msg,WPARAM wParam,LPARAM lParam);
+void CreateGraphicsPanel(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 void OpenglDraw(void);
 GLvoid glPrint(float x, float y, float z, const char *fmt, ...);
 
 /*typedef class CoreControl
 {
 public:
-	int value;
-	CoreControl(void){
-		value = 0;
-	}
+        int value;
+        CoreControl(void){
+                value = 0;
+        }
 } CoreControl;
 
 typedef class DerivedControl : public CoreControl
 {
 public:
-	DerivedControl(void){
-		value = 1;
-	}
+        DerivedControl(void){
+                value = 1;
+        }
 } DerivedControl;
 
 
 DerivedControl mycontrol;*/
 #endif
-
