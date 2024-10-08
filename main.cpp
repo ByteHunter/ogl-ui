@@ -134,8 +134,8 @@ LRESULT CALLBACK WinProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) {
     myframe1.LDown(mx, my);
     framebutton1.LDown(mx, my);
     myedit1.LDown(mx, my);
-    mycheckbox1.LDown(mx, my);
-    mycheckbox2.LDown(mx, my);
+    // mycheckbox1.LDown(mx, my);
+    // mycheckbox2.LDown(mx, my);
     mynumber1.LDown(mx, my);
     myfloat1.LDown(mx, my);
     for (uint i = 0; i < 5; i++)
@@ -175,8 +175,8 @@ LRESULT CALLBACK WinProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) {
     if (framebutton1.LUp(mx, my) == 1) {
       MessageBox(hWnd, "Opening file dialog...", "WWM beta", MB_OK);
     }
-    mycheckbox1.LUp(mx, my);
-    mycheckbox2.LUp(mx, my);
+    // mycheckbox1.LUp(mx, my);
+    // mycheckbox2.LUp(mx, my);
     mynumber1.LUp(mx, my);
     myfloat1.LUp(mx, my);
     for (uint i = 0; i < 5; i++) {
@@ -298,8 +298,10 @@ void CreateGraphicsPanel(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) {
   framebutton1 = Button(126, 31, 1.01, 140, 20, false, "Open");
   myedit1 = Edit(5, 105, 0, 100, 20, true, "text");
   mystatic1 = Static(5, 130, 0, 100, 20, true, "Some text");
-  mycheckbox1 = CheckBox(5, 155, 0, 20, 20, true, "");
-  mycheckbox2 = CheckBox(30, 155, 0, 20, 20, true, "");
+  // printf("Adding mycheckbox1\n");
+  // mycheckbox1 = CheckBox(5, 155, 0, 20, 20, true, "");
+  // printf("Adding mycheckbox2\n");
+  // mycheckbox2 = CheckBox(30, 155, 0, 20, 20, true, "");
   mynumber1 = EditNumber(5, 180, 0, 100, 20, true, 3);
   mynumber1.min = 0;
   mynumber1.step = 2;
@@ -352,8 +354,8 @@ void CreateGraphicsPanel(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) {
   mystatic1.font = base;
   mystatic2.font = base;
   mystatic3.font = base;
-  mycheckbox1.font = base;
-  mycheckbox2.font = base;
+  // mycheckbox1.font = base;
+  // mycheckbox2.font = base;
   myframe1.AddControl(&framebutton1);
   mynumber1.font = base;
   myfloat1.font = base;
@@ -383,8 +385,8 @@ void OpenglDraw(void) {
   mystatic1.Render();
   mystatic2.Render();
   mystatic3.Render();
-  mycheckbox1.Render();
-  mycheckbox2.Render();
+  // mycheckbox1.Render();
+  // mycheckbox2.Render();
   mynumber1.Render();
   myfloat1.Render();
   for (uint i = 0; i < 5; i++)
