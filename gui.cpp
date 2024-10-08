@@ -704,6 +704,7 @@ int CheckBox::Over(float xpos, float ypos, bool lmb) {
                   state=2;
           return 1;
   }*/
+  return 0;
 }
 
 //-----------------------------------------------

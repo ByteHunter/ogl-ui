@@ -10,24 +10,24 @@
 #include <math.h>
 #include <windows.h>
 
-#pragma comment(lib, "user32.lib")
-#pragma comment(lib, "gdi32.lib")
-#pragma comment(lib, "winspool.lib")
-#pragma comment(lib, "comdlg32.lib")
-#pragma comment(lib, "opengl32.lib")
-#pragma comment(lib, "glu32.lib")
+// #pragma comment(lib, "user32.lib")
+// #pragma comment(lib, "gdi32.lib")
+// #pragma comment(lib, "winspool.lib")
+// #pragma comment(lib, "comdlg32.lib")
+// #pragma comment(lib, "opengl32.lib")
+// #pragma comment(lib, "glu32.lib")
 
-#pragma comment(                                                               \
-    linker,                                                                    \
-    "\"/manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
+// #pragma comment(                                                               \
+//     linker,                                                                    \
+//     "\"/manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
 
 int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmdLine,
                    int nShowCmd) {
   WNDCLASSEX wClass;
   memset(&wClass, 0, sizeof(WNDCLASSEX));
-  wClass.cbClsExtra = NULL;
+  wClass.cbClsExtra = 0;
   wClass.cbSize = sizeof(WNDCLASSEX);
-  wClass.cbWndExtra = NULL;
+  wClass.cbWndExtra = 0;
   wClass.hbrBackground = (HBRUSH)COLOR_WINDOW;
   wClass.hCursor = LoadCursor(NULL, IDC_ARROW);
   wClass.hIcon = NULL;
@@ -45,8 +45,8 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmdLine,
   }
 
   HWND hWnd =
-      CreateWindowEx(NULL, "WinGL Class", "OpenGL GUI", WS_OVERLAPPEDWINDOW, 0,
-                     0, 1024 + 16, 720 + 38, NULL, NULL, hInst, NULL);
+      CreateWindowEx(0, "WinGL Class", "OpenGL GUI", WS_OVERLAPPEDWINDOW, 0, 0,
+                     1024 + 16, 720 + 38, NULL, NULL, hInst, NULL);
 
   if (!hWnd) {
     int nResult = GetLastError();
