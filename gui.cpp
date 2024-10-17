@@ -59,19 +59,19 @@ Static::Static(float xpos, float ypos, float zpos, float width, float height,
 //
 void Static::SetText(const char *txt) {
   unsigned int len = sizeof(txt);
-  delete[] text;
+  // delete[] text;
   text = new char[len];
   memcpy((void *)&text, (const void *)&txt, len);
 }
 
 void Static::SetFloat(float value) {
-  delete[] text;
+  // delete[] text;
   text = new char[32];
   sprintf(text, "%.4f", value);
 }
 
 void Static::SetFloat(const char *fmt, float value) {
-  delete[] text;
+  // delete[] text;
   text = new char[32];
   sprintf(text, fmt, value);
 }
@@ -133,7 +133,7 @@ Button::Button(float xpos, float ypos, float zpos, float width, float height,
 
 void Button::SetText(const char *txt) {
   size_t len = sizeof(txt);
-  delete[] text;
+  // delete[] text;
   text = new char[len];
   memcpy((void *)&text, (const void *)&txt, len);
 }
@@ -285,7 +285,7 @@ Frame::Frame(float xpos, float ypos, float zpos, float width, float height,
 
 void Frame::SetText(const char *txt) {
   unsigned int len = sizeof(txt);
-  delete[] text;
+  // delete[] text;
   text = new char[len];
   memcpy((void *)&text, (const void *)&txt, len);
   // text = (char*)txt;
@@ -480,7 +480,7 @@ Edit::Edit(float xpos, float ypos, float zpos, float width, float height,
 
 void Edit::SetText(const char *txt) {
   unsigned int len = sizeof(txt);
-  delete[] text;
+  // delete[] text;
   text = new char[len];
   memcpy((void *)&text, (const void *)&txt, len);
   // text = (char*)txt;
@@ -571,7 +571,7 @@ CheckBox::CheckBox(float xpos, float ypos, float zpos, float width,
   visible = vis;
   state = 0;
   size_t len = sizeof(txt);
-  delete[] text;
+  // delete[] text;
   text = new char[len];
   memcpy((void *)&text, (const void *)&txt, len);
 
