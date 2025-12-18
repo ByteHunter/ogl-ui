@@ -46,7 +46,7 @@ int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmdLine,
 
   HWND hWnd =
       CreateWindowEx(0, "WinGL Class", "OpenGL GUI", WS_OVERLAPPEDWINDOW, 0, 0,
-                     1024 + 16, 720 + 38, NULL, NULL, hInst, NULL);
+                     600 + 16, 500 + 38, NULL, NULL, hInst, NULL);
 
   if (!hWnd) {
     int nResult = GetLastError();
@@ -296,7 +296,7 @@ void CreateGraphicsPanel(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) {
   mybutton3 = Button(5, 80, 0, 100, 20, true, "Exit");
   myframe1 = Frame(121, 6, 1, 150, 180, false, "Menu");
   framebutton1 = Button(126, 31, 1.01, 140, 20, false, "Open");
-  myedit1 = Edit(5, 105, 0, 100, 20, true, "text");
+  myedit1 = Edit(5, 105, 0, 100, 20, true, "Input text");
   mystatic1 = Static(5, 130, 0, 100, 20, true, "Some text");
   mycheckbox1 = CheckBox(5, 155, 0, 20, 20, true, "");
   mycheckbox2 = CheckBox(30, 155, 0, 20, 20, true, "");
