@@ -467,6 +467,7 @@ Edit::Edit(float xpos, float ypos, float zpos, float width, float height,
   z = zpos;
   w = width;
   h = height;
+  b = 5;
   visible = vis;
   state = 0;
   size_t len = sizeof(txt);
