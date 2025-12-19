@@ -10,17 +10,6 @@
 #include <math.h>
 #include <windows.h>
 
-// #pragma comment(lib, "user32.lib")
-// #pragma comment(lib, "gdi32.lib")
-// #pragma comment(lib, "winspool.lib")
-// #pragma comment(lib, "comdlg32.lib")
-// #pragma comment(lib, "opengl32.lib")
-// #pragma comment(lib, "glu32.lib")
-
-// #pragma comment(                                                               \
-//     linker,                                                                    \
-//     "\"/manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
-
 int WINAPI WinMain(HINSTANCE hInst, HINSTANCE hPrevInst, LPSTR lpCmdLine,
                    int nShowCmd) {
   WNDCLASSEX wClass;
@@ -87,9 +76,9 @@ LRESULT CALLBACK WinProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) {
   } break;
 
   case WM_COMMAND:
-    /*switch(LOWORD(wParam))
-{
-    }*/
+    // switch(LOWORD(wParam))
+    // {
+    // }
     break;
 
   case WM_MOUSEMOVE: {
@@ -197,8 +186,8 @@ LRESULT CALLBACK WinProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) {
   } break;
 
   case WM_KEYDOWN: {
-    /*swprintf_s(dmsg, L"WM_KEYDOWN: 0x%x\n", wParam);
-    OutputDebugStringW(dmsg);*/
+    // swprintf_s(dmsg, L"WM_KEYDOWN: 0x%x\n", wParam);
+    // OutputDebugStringW(dmsg);
   } break;
 
   case WM_CHAR: {
@@ -220,8 +209,8 @@ LRESULT CALLBACK WinProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam) {
   } break;
 
   case WM_KEYUP: {
-    /*swprintf_s(dmsg, L"WM_KEYUP: 0x%x\n", wParam);
-    OutputDebugStringW(dmsg);*/
+    // swprintf_s(dmsg, L"WM_KEYUP: 0x%x\n", wParam);
+    // OutputDebugStringW(dmsg);
   } break;
 
   case WM_DESTROY: {

@@ -295,12 +295,6 @@ void Frame::AddControl(void *_pcontrol) { child_controls.push_back(_pcontrol); }
 
 void Frame::Show(bool _b) {
   visible = _b;
-  /*for(unsigned int i=0;i<child_buttons.size();i++){
-          child_buttons[i]->visible=_b;
-  }
-  for(unsigned int i=0;i<child_statics.size();i++){
-          child_statics[i]->visible=_b;
-  }*/
   for (unsigned int i = 0; i < child_controls.size(); i++) {
     ((Control *)child_controls[i])->visible = _b;
   }
@@ -375,8 +369,6 @@ int Frame::LDown(float xpos, float ypos) {
       xi = xpos;
       yi = ypos;
       z += 5;
-      /*for(unsigned int i=0;i<child_buttons.size();i++)
-              child_buttons[i]->z+=5;*/
       for (unsigned int i = 0; i < child_controls.size(); i++)
         ((Control *)child_controls[i])->z += 5;
     }
@@ -397,8 +389,6 @@ int Frame::LUp(float xpos, float ypos) {
       mleft = false;
       if (movable) {
         z -= 5;
-        /*for(unsigned int i=0;i<child_buttons.size();i++)
-                child_buttons[i]->z-=5;*/
         for (unsigned int i = 0; i < child_controls.size(); i++)
           ((Control *)child_controls[i])->z -= 5;
       }
@@ -427,10 +417,6 @@ int Frame::Over(float xpos, float ypos, bool lmb) {
       xi = xpos;
       yi = ypos;
       state = 1;
-      /*for(unsigned int i=0;i<child_buttons.size();i++){
-              child_buttons[i]->x+=xd;
-              child_buttons[i]->y+=yd;
-      }*/
       for (unsigned int i = 0; i < child_controls.size(); i++) {
         ((Control *)child_controls[i])->x += xd;
         ((Control *)child_controls[i])->y += yd;
@@ -494,8 +480,6 @@ void Edit::Render(void) {
   glPushMatrix();
   // Render fill
   glColor3f(0.05f, 0.05f, 0.05f);
-  // if(state==1) glColor3f(0.15f,0.15f,0.15f);
-  // if(state==2) glColor3f(0.05f,0.05f,0.05f);
   glBegin(GL_QUADS);
   glVertex3f(x, y, z);
   glVertex3f(x + w, y, z);
@@ -508,7 +492,6 @@ void Edit::Render(void) {
     glColor3f(0.6f, 0.6f, 0.6f);
   if (state == 1)
     glColor3f(0.4f, 0.4f, 0.4f);
-  // if(state==2) glColor3f(0.8f,0.8f,0.8f);
   glBegin(GL_LINE_LOOP);
   glVertex3f(x, y, z + 0.01f);
   glVertex3f(x + w, y, z + 0.01f);
@@ -642,18 +625,6 @@ void CheckBox::Render(void) {
   h += 8;
   w += 8;
   glPopMatrix();
-
-  /*if(text == NULL)
-          return;
-
-  glPushMatrix();
-  glColor3f(0.8f,0.8f,0.8f);
-  glRasterPos3f(x+b+((state==1)?1:0),y+h-b+((state==1)?1:0),z+1);
-  glPushAttrib(GL_LIST_BIT);
-  glListBase(font-32);
-  glCallLists(strlen(text),GL_UNSIGNED_BYTE, text);
-  glPopAttrib();
-  glPopMatrix();*/
 }
 
 int CheckBox::LDown(float xpos, float ypos) {
@@ -687,24 +658,7 @@ int CheckBox::LUp(float xpos, float ypos) {
 }
 
 int CheckBox::Over(float xpos, float ypos, bool lmb) {
-  /*if(!visible)
-          return 0;
-  if(lmb)
-          return 0;
-  if(!((xpos>=x)&&(xpos<=(x+w))&&(ypos>=y)&&(ypos<=(y+h))))
-  {
-          if(!mleft)
-                  state=0;
-          return 0;
-  }
-  else
-  {
-          if(mleft)
-                  state=1;
-          else
-                  state=2;
-          return 1;
-  }*/
+  // TODO: make it glow when hovering over
   return 0;
 }
 
@@ -760,10 +714,6 @@ EditNumber::EditNumber(float xpos, float ypos, float zpos, float width,
 void EditNumber::Render(void) {
   if (!visible)
     return;
-
-  // if(state==0) glColor3f(0.05f,0.05f,0.05f);
-  // if(state==1) glColor3f(0.15f,0.15f,0.15f);
-  // if(state==2) glColor3f(0.05f,0.05f,0.05f);
 
   // Fill
   glPushMatrix();
@@ -895,10 +845,6 @@ int EditNumber::LDown(float xpos, float ypos) {
     return 0;
   // check left
   if (((xpos >= x) && (xpos <= (x + 20)) && (ypos >= y) && (ypos <= (y + h))))
-  //{
-  // return 0;
-  //}
-  // else
   {
     SetCursor(LoadCursor(NULL, IDC_HAND));
     lstate = 1;
@@ -912,10 +858,6 @@ int EditNumber::LDown(float xpos, float ypos) {
   // check right
   if (((xpos >= (x + w - 20)) && (xpos <= (x + w)) && (ypos >= y) &&
        (ypos <= (y + h))))
-  //{
-  // return 0;
-  //}
-  // else
   {
     SetCursor(LoadCursor(NULL, IDC_HAND));
     rstate = 1;
@@ -926,10 +868,6 @@ int EditNumber::LDown(float xpos, float ypos) {
     sprintf(rtext, "%d", value);
     return 1;
   }
-  /*if(!((xpos>=x)&&(xpos<=(x+20))&&(ypos>=y)&&(ypos<=(y+h)))&&!((xpos>=(x+w-20))&&(xpos<=(x+w))&&(ypos>=y)&&(ypos<=(y+h))))
-          return 0;
-  else
-          return 1;*/
   return 1;
 }
 
@@ -942,22 +880,18 @@ int EditNumber::LUp(float xpos, float ypos) {
   if (!((xpos >= x) && (xpos <= (x + 20)) && (ypos >= y) &&
         (ypos <= (y + h)))) {
     mleft = false;
-    // return 0;
   } else {
     if (mleft) {
       mleft = false;
-      // return 1;
     }
   }
   // check right
   if (!((xpos >= (x + w - 20)) && (xpos <= (x + w)) && (ypos >= y) &&
         (ypos <= (y + h)))) {
     mleft = false;
-    // return 0;
   } else {
     if (mleft) {
       mleft = false;
-      // return 1;
     }
   }
   if (!((xpos >= x) && (xpos <= (x + 20)) && (ypos >= y) &&
@@ -1058,10 +992,6 @@ EditNumberF::EditNumberF(float xpos, float ypos, float zpos, float width,
 void EditNumberF::Render(void) {
   if (!visible)
     return;
-
-  // if(state==0) glColor3f(0.05f,0.05f,0.05f);
-  // if(state==1) glColor3f(0.15f,0.15f,0.15f);
-  // if(state==2) glColor3f(0.05f,0.05f,0.05f);
 
   // Fill
   glPushMatrix();
@@ -1193,10 +1123,6 @@ int EditNumberF::LDown(float xpos, float ypos) {
     return 0;
   // check left
   if (((xpos >= x) && (xpos <= (x + 20)) && (ypos >= y) && (ypos <= (y + h))))
-  //{
-  // return 0;
-  //}
-  // else
   {
     SetCursor(LoadCursor(NULL, IDC_HAND));
     lstate = 1;
@@ -1208,10 +1134,6 @@ int EditNumberF::LDown(float xpos, float ypos) {
   // check right
   if (((xpos >= (x + w - 20)) && (xpos <= (x + w)) && (ypos >= y) &&
        (ypos <= (y + h))))
-  //{
-  // return 0;
-  //}
-  // else
   {
     SetCursor(LoadCursor(NULL, IDC_HAND));
     rstate = 1;
@@ -1220,10 +1142,6 @@ int EditNumberF::LDown(float xpos, float ypos) {
     sprintf(rtext, "%.2f", value);
     return 1;
   }
-  /*if(!((xpos>=x)&&(xpos<=(x+20))&&(ypos>=y)&&(ypos<=(y+h)))&&!((xpos>=(x+w-20))&&(xpos<=(x+w))&&(ypos>=y)&&(ypos<=(y+h))))
-          return 0;
-  else
-          return 1;*/
   return 1;
 }
 
@@ -1236,22 +1154,18 @@ int EditNumberF::LUp(float xpos, float ypos) {
   if (!((xpos >= x) && (xpos <= (x + 20)) && (ypos >= y) &&
         (ypos <= (y + h)))) {
     mleft = false;
-    // return 0;
   } else {
     if (mleft) {
       mleft = false;
-      // return 1;
     }
   }
   // check right
   if (!((xpos >= (x + w - 20)) && (xpos <= (x + w)) && (ypos >= y) &&
         (ypos <= (y + h)))) {
     mleft = false;
-    // return 0;
   } else {
     if (mleft) {
       mleft = false;
-      // return 1;
     }
   }
   if (!((xpos >= x) && (xpos <= (x + 20)) && (ypos >= y) &&
@@ -1369,18 +1283,8 @@ void Slider::Render(void) {
     return;
   glPushMatrix();
 
-  // Draw basic box (temporal)
-  /*glBegin(GL_LINE_LOOP);
-  glColor3f(0.1f,0.1f,0.1f);
-  glVertex3f(x,y,z);
-  glVertex3f(x+w,y,z);
-  glVertex3f(x+w,y+h,z);
-  glVertex3f(x,y+h,z);
-  glEnd();*/
-
   // Draw lines
   glBegin(GL_LINE_LOOP);
-  // glColor3f(0.5f,0.5f,0.5f);
   glColor3f(0.4f, 0.4f, 0.4f);
   glVertex3f(x, y + h / 2 - 2, z);
   glVertex3f(x + w, y + h / 2 - 2, z);
@@ -1428,26 +1332,7 @@ void Slider::Render(void) {
   glVertex3f(px + pw - 4, y + h / 2 + 3, z + 0.02f);
   glEnd();
 
-  // Button delimiter
-  /*glBegin(GL_LINES);
-  glColor3f(1,0,0);
-  glVertex3f(x,y,z+0.02f);
-  glVertex3f(x,y+h,z+0.02f);
-  glVertex3f(x+pw,y,z+0.02f);
-  glVertex3f(x+pw,y+h,z+0.02f);
-  glEnd();*/
-
-  // Values
-  glBegin(GL_LINES);
-  glColor3f(0, 1, 0);
-  for (int i = 0; i < ((maxv - minv + 1) / step); i++) {
-    // glVertex3f(x+pw/2+i*vw,y,z+0.01f);
-    // glVertex3f(x+pw/2+i*vw,y+h,z+0.01f);
-  }
-  glEnd();
-
   // Draw slider
-
   glPopMatrix();
 }
 
@@ -1808,9 +1693,6 @@ void Tabs::Render(void) {
   glTranslatef(x, y, 0);
 
   // FILL
-  // if(state==0) glColor3f(0.05f,0.05f,0.05f);
-  // if(state==1) glColor3f(0.15f,0.15f,0.15f);
-  // if(state==2) glColor3f(0.05f,0.05f,0.05f);
   // Filling content area
   glColor3f(0.05f, 0.05f, 0.05f);
   glBegin(GL_POLYGON);

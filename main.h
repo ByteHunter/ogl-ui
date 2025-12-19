@@ -49,23 +49,4 @@ void CreateGraphicsPanel(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
 void OpenglDraw(void);
 GLvoid glPrint(float x, float y, float z, const char *fmt, ...);
 
-/*typedef class CoreControl
-{
-public:
-        int value;
-        CoreControl(void){
-                value = 0;
-        }
-} CoreControl;
-
-typedef class DerivedControl : public CoreControl
-{
-public:
-        DerivedControl(void){
-                value = 1;
-        }
-} DerivedControl;
-
-
-DerivedControl mycontrol;*/
 #endif

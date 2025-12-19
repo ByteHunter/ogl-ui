@@ -3,6 +3,7 @@
 
 #define OGL_GUI_VERSION 1
 #define OGL_GUI_SUBVERSION 0
+#define OGL_GUI_REVISION 1
 
 #include <gl/gl.h>
 #include <gl/glu.h>
@@ -15,12 +16,6 @@
 #define PI180 3.14159265359 / 180
 
 using namespace std;
-
-/*typedef struct ControlHandle
-{
-        void *p;	//Pointer to control object
-        void *t;	//Type of provided control
-} ControlHandle;*/
 
 //-----------------------------------------------
 // Base control class
@@ -92,8 +87,6 @@ public:
   bool movable;
 
   // Child elements pointers
-  // vector<Static*> child_statics;
-  // vector<Button*> child_buttons;
   vector<void *> child_controls;
 
   // Main functions
