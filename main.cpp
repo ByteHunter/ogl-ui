@@ -5,7 +5,6 @@
 #include <Windowsx.h>
 #include <gl/gl.h>
 #include <gl/glu.h>
-#include <gl/glut.h>
 #include <iostream>
 #include <math.h>
 #include <windows.h>

@@ -1,7 +1,7 @@
 BINARY_NAME=app.exe
 
 build:
-	g++ gui.cpp main.cpp -lopengl32 -lfreeglut -lgdi32 -lwinspool -lcomdlg32 -o ${BINARY_NAME}
+	g++ gui.cpp main.cpp -static -lopengl32 -lgdi32 -lwinspool -lcomdlg32 -o ${BINARY_NAME}
 
 run:
 	@./${BINARY_NAME}
