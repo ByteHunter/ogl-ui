@@ -34,18 +34,6 @@ Available GUI Elements:
 * EditNumberF (for float values)
 * Slider
 
-# Is there any roadmap?
-
-Yes and no. This project was born as a proof of concept and as a means to learn new
-things. But I do intend to continue iterating on it and improve it over time.
-
-Some possible improvements I'm considering may be, but not limited to:
-
-* Modernize to a newer C++ version. This project was created a while back, when C++11 was considered modern.
-* Fix any issues with the rendering.
-* Tidying the code base.
-* Improve this document.
-
 # Structure
 
 The key files to import are the header `gui.h` and the source `gui.cpp` files.
@@ -77,3 +65,15 @@ To build the project just run: `make build`.
 To run it: `make run`.
 
 Or, you can download the pre-built binary file from the repository [Releases](https://github.com/ByteHunter/ogl-ui/releases).
+
+# Is there any roadmap?
+
+Yes and no. This project was born as a proof of concept and as a means to learn new
+things. But I do intend to continue iterating on it and improve it over time.
+
+Some possible improvements I'm considering may be, but not limited to:
+
+* Modernize to a newer C++ version. This project was created a while back, when C++11 was considered modern.
+* Fix any issues with the rendering.
+* Tidying the code base.
+* Improve this document.
