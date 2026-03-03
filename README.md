@@ -63,3 +63,17 @@ This example uses the Microsoft's Win32 API library to set up the minimal needed
 and context for the OpenGL to be rendered in.
 
 The project uses Win32's loop system to process system's messages and capture user input.
+
+# How to compile and use
+
+The requirements to compile this project are:
+
+* Microsoft's Windows system (should work on any version starting at XP)
+* A compiler toolchain (like the MinGW-w64 toolchain)
+* OpenGL
+
+To build the project just run: `make build`.
+
+To run it: `make run`.
+
+Or, you can download the pre-built binary file from the repository [Releases](https://github.com/ByteHunter/ogl-ui/releases).
